@@ -133,14 +133,22 @@ First, we are going to design and create an OpenAPI specification for the differ
 4. Open the new .js file created for the new JavaScript policy and paste the following
 
 ```JavaScript
-var product = context.proxyResponse.content.asJSON.Product;
-product.price = product.priceUsd;
-delete product.priceUsd;
-product.currency = "USD";
-context.proxyResponse.content.asJSON = product;
+// Get the array of products from the service response.
+var products = context.proxyResponse.content.asJSON.products;
+// Loop through each product and standardize the format.
+for (i = 0; i < products.length; i++) {
+  products[i].price = products[i].priceUsd; // add price attribute
+  delete products[i].priceUsd; // remove priceUsd attribute
+  products[i].currency = "USD"; // add currency attribute 
+}
+// Remove the outer object named 'products' and make
+// the array the root in the final response.
+context.proxyResponse.content.asJSON = products;
 ```
 
 5. Save the changes and ensure they are deployed
+
+
 
 6. Invoke the URL to see the tranformed JSON response payload
 
