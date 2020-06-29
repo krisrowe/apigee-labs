@@ -126,13 +126,13 @@ First, we are going to design and create an OpenAPI specification for the differ
 
 4. Open the new .js file created for the new JavaScript policy and paste the following
 
-'''JavaScript
+```JavaScript
 var product = context.proxyResponse.content.asJSON.Product;
 product.price = product.priceUsd;
 delete product.priceUsd;
 product.currency = "USD";
 context.proxyResponse.content.asJSON = product;
-'''
+```
 
 5. Save the changes and ensure they are deployed
 
