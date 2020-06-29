@@ -146,6 +146,8 @@ for (i = 0; i < products.length; i++) {
 context.proxyResponse.content.asJSON = products;
 ```
 
+![image alt text](./media/JSCode.png)
+
 5. Save the changes and ensure they are deployed
 
 
