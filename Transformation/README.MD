@@ -116,6 +116,10 @@ First, we are going to design and create an OpenAPI specification for the differ
 
 ![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_16.png)
 
+13. Invoke the API at Apigee to see the default JSON format coming from the backend service.
+
+![image alt text](./media/OriginalJSONFormatProducts.png)
+
 ## Add transformation of the JSON response
 
 1. Ensure the flow named GetProducts is selected, which handles GET requests that retrieve the complete collection rather than a single product.
@@ -154,6 +158,10 @@ context.proxyResponse.content.asJSON = products;
 6. Invoke the URL to see the tranformed JSON response payload
 
 ![image alt text](./media/NewJSONFormat.png)
+
+### Proxy source code
+
+The source code for the proxy that we have constructed so far can also be found [here](./revisions/rev-1_json-transform), for reference.  
 
 ## Add support for XML format
 
