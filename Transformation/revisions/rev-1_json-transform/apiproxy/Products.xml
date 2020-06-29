@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="7" name="Products">
+    <Basepaths>/v1/products</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1591799734116</CreatedAt>
+    <CreatedBy>defaultUser</CreatedBy>
+    <Description>Products</Description>
+    <DisplayName>Products</DisplayName>
+    <LastModifiedAt>1593464750585</LastModifiedAt>
+    <LastModifiedBy>defaultUser</LastModifiedBy>
+    <ManifestVersion>SHA-512:248be0468f7950a6637bd88dfa1c19b8ecf0e289454670e8d57f51f2493c3f1c681c5e4a409b136274289cf368dcabd4942cbea2d093efb70e3b9550907a9a71</ManifestVersion>
+    <Policies>
+        <Policy>JavaScript-1</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>jsc://JavaScript-1.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>default</TargetEndpoint>
+    </TargetEndpoints>
+</APIProxy>

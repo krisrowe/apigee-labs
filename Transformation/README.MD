@@ -151,8 +151,9 @@ context.proxyResponse.content.asJSON = products;
 5. Save the changes and ensure they are deployed
 
 
-
 6. Invoke the URL to see the tranformed JSON response payload
+
+![image alt text](./media/NewJSONFormat.png)
 
 ## Add support for XML format
 
