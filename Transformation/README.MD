@@ -118,8 +118,26 @@ First, we are going to design and create an OpenAPI specification for the differ
 
 ## Add transformation of the JSON response
 
-asdf
+1. Ensure the flow named GetProducts is selected, which handles GET requests that retrieve the complete collection rather than a single product.
+
+2. Click the button to add a step to the response flow
+
+3. Select the JavaScript policy and add it
+
+4. Open the new .js file created for the new JavaScript policy and paste the following
+
+'''JavaScript
+var product = context.proxyResponse.content.asJSON.Product;
+product.price = product.priceUsd;
+delete product.priceUsd;
+product.currency = "USD";
+context.proxyResponse.content.asJSON = product;
+'''
+
+5. Save the changes and ensure they are deployed
+
+6. Invoke the URL to see the tranformed JSON response payload
 
 ## Add support for XML format
 
-asdf
+1. 
