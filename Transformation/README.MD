@@ -28,7 +28,7 @@ In this lab, you will modify an existing API Proxy to 1) reformat the default JS
 
 # Pre-requisites
 
-For this lab, you will need an API Proxy that returns JSON.  If you do not have an API Proxy available for this lab, revisit the lab "API Design : Create a Reverse Proxy with OpenAPI Specification" and then return here to complete these steps.
+Ensure you have an Apigee account: (https://apigee.com/edge)
 
 # Instructions
 
