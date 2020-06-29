@@ -124,7 +124,11 @@ First, we are going to design and create an OpenAPI specification for the differ
 
 2. Click the button to add a step to the response flow
 
+![image alt text](./media/SelectAddStepForGetProducts.png)
+
 3. Select the JavaScript policy and add it
+
+![image alt text](./media/SelectAddJSPolicy.png)
 
 4. Open the new .js file created for the new JavaScript policy and paste the following
 
