@@ -41,7 +41,7 @@ First, we are going to design and create an OpenAPI specification for the differ
 
 2. Select **Develop → Specs** in the side navigation menu
 
-![image alt text](./media/image_0.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_0.png)
 
 3. As we have a pre-designed sample of the spec available for this lab, we will be importing it into your Apigee Org's Spec Store. Click **+Spec**. Click on **Import URL** to add a new spec from existing source.
 
