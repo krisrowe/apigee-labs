@@ -165,4 +165,28 @@ The source code for the proxy that we have constructed so far can also be found 
 
 ## Add support for XML format
 
-1. 
+1. Click to add a second policy to the response flow
+
+![image alt text](./media/AddSecondPolicy.png)
+
+2. Select the JSONToXML policy and add it
+
+![image alt text](./media/AddJSONToXMLPolicy.png)
+
+3. Review the default configuration for the JSON to XML policy
+
+![image alt text](./media/JSONToXMLPolicyAdded.png)
+
+4. Adjust the policy configuration to change the name given to the root XML element 
+
+![image alt text](./media/JSONToXMLPolicyUpdated.png)
+
+5. Save the changes and ensure the proxy revision is deployed
+
+6. Invoke the API to see the XML returned
+
+![image alt text](./media/XMLResponse.png)
+
+### Proxy source code
+
+The source code for the proxy that we have constructed so far can also be found [here](./revisions/rev-2_json-to-xml), for reference.  
