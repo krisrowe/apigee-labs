@@ -45,40 +45,40 @@ First, we are going to design and create an OpenAPI specification for the differ
 
 3. As we have a pre-designed sample of the spec available for this lab, we will be importing it into your Apigee Org's Spec Store. Click **+Spec**. Click on **Import URL** to add a new spec from existing source.
 
-![image alt text](./media/image_1.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_1.png)
 
 4. Enter spec details. Replace **{your-initials}** with the initials of your name.
 
    * File Name: **{your-initials}**_hipster_products_api_spec
    * URL: [https://raw.githubusercontent.com/aliceinapiland/apijam/master/Module-1/Resources/products-catalog-spec.yaml](https://raw.githubusercontent.com/aliceinapiland/apijam/master/Module-1/Resources/products-catalog-spec.yaml)
 
-![image alt text](./media/image_2.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_2.png)
 
 5. Verify the values and click **Import**. Spec has been imported into Apigee Edge & Ready to use. You should see your spec in the list. For example,
 
-![image alt text](./media/image_3.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_3.png)
 
 6. Click on **{your-initials}**\_hipster_products_api_spec from the list to access Open API spec editor & interactive documentation that lists API details & API Resources.
 
-![image alt text](./media/image_4.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_4.png)
 
 ## Create an API Proxy
 
 1. It’s time to create Apigee API Proxy from Open API Specification. Click on **Develop → API Proxies** from side navigation menu.
 
-![image alt text](./media/image_5.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_5.png)
 
 2. Click **+Proxy** The Build a Proxy wizard is invoked. 
 
-![image alt text](./media/image_6.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_6.png)
 
 3. Select **Reverse proxy**, Click on **Use OpenAPI** below reverse proxy option.
 
-![image alt text](./media/image_7.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_7.png)
 
 4. You should see a popup with list of Specs. Select **{your-initials}**\_hipster_products_api_spec and click **Select.** 
 
-![image alt text](./media/image_8.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_8.png)
 
 5. Enter details in the proxy wizard. Replace **{your-initials}** with the initials of your name. 
 
@@ -88,33 +88,33 @@ First, we are going to design and create an OpenAPI specification for the differ
 
     * Existing API: Observe the field value which is auto filled from OpenAPI Spec.
 
-![image alt text](./media/image_10.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_10.png)
 
 6. Verify the values and click **Next**.
 
 7. Select **Pass through (none)** for the authorization in order to choose not to apply any security policy for the proxy. Click Next. 
 
-![image alt text](./media/image_12.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_12.png)
 
 8. You can select, de-select list of API Proxy Resources that are pre-filled from OpenAPI Spec. Select all & Click on **Next**
 
-![image alt text](./media/image_11.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_11.png)
 
 9. Go with the **secure Virtual Host** configuration. Ensure that the **default** one is unchecked.
 
-![image alt text](./media/image_13.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_13.png)
 
 10. Ensure that only the **test** environment is selected to deploy to and click **Create and Deploy** 
 
-![image alt text](./media/image_14.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_14.png)
 
 11. Once the API proxy is created and deployed click **Edit Proxy** to view your proxy in the proxy editor. 
 
-![image alt text](./media/image_15.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_15.png)
 
 12. *Congratulations!* ...You have now built a reverse proxy for an existing backend service. You should see the proxy **Overview** tab.
 
-![image alt text](./media/image_16.png)
+![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_16.png)
 
 ## Add transformation of the JSON response
 
