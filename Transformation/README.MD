@@ -120,6 +120,8 @@ First, we are going to design and create an OpenAPI specification for the differ
 
 1. Ensure the flow named GetProducts is selected, which handles GET requests that retrieve the complete collection rather than a single product.
 
+![image alt text](./media/VerifyGetProductsSelected.png)
+
 2. Click the button to add a step to the response flow
 
 3. Select the JavaScript policy and add it
