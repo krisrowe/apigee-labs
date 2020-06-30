@@ -8,6 +8,10 @@
 
 You have a backend service that returns a JSON payload, but the schema doesn't match what you've published to consumers. Also, a potential business partner has asked that you provide access to the same data in XML format. You don’t own the backend service, and even if you did, by the time your team changed the backend, and it passed all your enterprise integration tests, you would have lost the partnership opportunity.
 
+| Backend Service | Consumer-facing API |
+| :---: | :---: |
+| ![image alt text](./media/backend-service-spec.png) | ![image alt text](./media/new-api-spec.png) |
+
 # How can Apigee Edge help?
 
 The [JavaScript policy](https://docs.apigee.com/api-platform/reference/policies/javascript-policy) in Apigee lets you add custom JavaScript code that executes within the context of an API call. In your custom JavaScript code, you can use the objects, methods, and properties of the Apigee object model, which lets you to read or manipulate virtually any aspect of the HTTP request (from the client) or response (from the backend service), along with a wide breadth of rich contextual information that Apigee makes available. It is especially powerful for making tweaks to the format of a JSON (JavaScript Object Notation) payload.
