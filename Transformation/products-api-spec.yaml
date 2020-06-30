@@ -1,0 +1,67 @@
+swagger: '2.0'
+info:
+  title: Hipster Products API
+  version: "1"
+  description: Products API for Hipster Application
+host: cloud.hipster.s.apigee.com
+basePath:
+  /products
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /:
+    get:
+      operationId: GetProducts
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/hipstershopListProductsResponse'
+      tags:
+        - ProductCatalogService
+  /{productId}:
+    get:
+      operationId: GetProductDetails
+      parameters: 
+        - in: path
+          name: productId
+          type: string
+          required: true
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/hipstershopProduct'
+      tags:
+        - ProductCatalogService
+definitions:
+  hipstershopListProductsResponse:
+    type: array
+    items:
+      $ref: '#/definitions/hipstershopProduct'
+  hipstershopProduct:
+    type: object
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+      description:
+        type: string
+      picture:
+        type: string
+      price:
+        type: number
+      currency:
+        type: string
+      categories:
+        type: array
+        items:
+          type: string
+        description: |-
+          Categories such as "vintage" or "gardening" that can be used to look up
+          other related products.

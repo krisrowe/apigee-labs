@@ -94,27 +94,27 @@ First, we are going to design and create an OpenAPI specification for the differ
 
 7. Select **Pass through (none)** for the authorization in order to choose not to apply any security policy for the proxy. Click Next. 
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_12.png)
+![image alt text](./media/SelectPassThrough.png)
 
-8. You can select, de-select list of API Proxy Resources that are pre-filled from OpenAPI Spec. Select all & Click on **Next**
+8. You can select, de-select list of API Proxy Resources that are pre-filled from OpenAPI Spec. Select all and click on **Next**
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_11.png)
+![image alt text](./media/SelectResourcesForFlows.png)
 
-9. Go with the **secure Virtual Host** configuration. Ensure that the **default** one is unchecked.
+9. Go with the **secure Virtual Host** configuration. Leave the **default** one unchecked.
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_13.png)
+![image alt text](,/media/host-selection.png)
 
-10. Ensure that only the **test** environment is selected to deploy to and click **Create and Deploy** 
+10. For simplicity, go ahead and select all environments for deployment, then click **Create and Deploy** 
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_14.png)
+![image alt text](./media/select-environments.png)
 
 11. Once the API proxy is created and deployed click **Edit Proxy** to view your proxy in the proxy editor. 
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_15.png)
+![image alt text](./media/proxy-created.png)
 
 12. *Congratulations!* ...You have now built a reverse proxy for an existing backend service. You should see the proxy **Overview** tab.
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_16.png)
+![image alt text](./media/new-proxy-overview.png)
 
 13. Invoke the API at Apigee to see the default JSON format coming from the backend service.
 
