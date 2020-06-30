@@ -47,20 +47,20 @@ First, we are going to design and create an OpenAPI specification for the differ
 
 ![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_1.png)
 
-4. Enter spec details. Replace **{your-initials}** with the initials of your name.
+4. Enter spec details.
 
-   * File Name: **{your-initials}**_hipster_products_api_spec
-   * URL: [https://raw.githubusercontent.com/aliceinapiland/apijam/master/Module-1/Resources/products-catalog-spec.yaml](https://raw.githubusercontent.com/aliceinapiland/apijam/master/Module-1/Resources/products-catalog-spec.yaml)
+   * Import Name: Products API
+   * Import Uul: [https://raw.githubusercontent.com/aliceinapiland/apijam/master/Module-1/Resources/products-catalog-spec.yaml](https://raw.githubusercontent.com/aliceinapiland/apijam/master/Module-1/Resources/products-catalog-spec.yaml)
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_2.png)
+![image alt text](./media/ImportSpecByURL.png)
 
-5. Verify the values and click **Import**. Spec has been imported into Apigee Edge & Ready to use. You should see your spec in the list. For example,
+5. Verify the values and click **Import**. Spec has been imported into Apigee and is ready to use. You should see your spec in the list. For example,
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_3.png)
+![image alt text](./media/SpecImported.png)
 
-6. Click on **{your-initials}**\_hipster_products_api_spec from the list to access Open API spec editor & interactive documentation that lists API details & API Resources.
+6. Click on Products API spec from the list to access Open API spec editor and interactive documentation that lists API details & API Resources.
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_4.png)
+![image alt text](./media/ProductsAPISpec.png)
 
 ## Create an API Proxy
 
