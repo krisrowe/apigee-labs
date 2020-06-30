@@ -10,7 +10,7 @@ You have a backend service that returns a JSON payload, but the schema doesn't m
 
 | Backend Service | Consumer-facing API |
 | :---: | :---: |
-| ![image alt text](./media/backend-service-spec.png) | ![image alt text](./media/new-api-spec.png) |
+| ![image alt text](./media/backend-service-spec.png) | ![image alt text](./media/new-api-spec-annotated.png) |
 
 # How can Apigee Edge help?
 
