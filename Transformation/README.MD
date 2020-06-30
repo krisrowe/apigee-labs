@@ -76,19 +76,19 @@ First, we are going to design and create an OpenAPI specification for the differ
 
 ![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_7.png)
 
-4. You should see a popup with list of Specs. Select **{your-initials}**\_hipster_products_api_spec and click **Select.** 
+4. You should see a popup with list of specs. Select the spec you previously imported. 
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_8.png)
+![image alt text](./media/SelectSpecForProxy.png)
 
 5. Enter details in the proxy wizard. Replace **{your-initials}** with the initials of your name. 
 
-    * Proxy Name: **{your_initials}**\_Hipster-Products-API
+    * Proxy Name: Products
 
-    * Proxy Base Path: /v1/**{your_initials}**\_hipster-products-api
+    * Proxy Base Path: /v1/products
 
-    * Existing API: Observe the field value which is auto filled from OpenAPI Spec.
+    * Existing API: Observe the field value which is auto filled from OpenAPI Spec. Add "/products" to the end as shown below.
 
-![image alt text](https://github.com/apigee/apijam/raw/master/Module-1/Labs/Lab%201/media/image_10.png)
+![image alt text](./media/EnterProxyRoutingDetails.png)
 
 6. Verify the values and click **Next**.
 
