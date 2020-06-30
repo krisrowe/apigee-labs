@@ -54,7 +54,7 @@ First, we are going to design and create an OpenAPI specification for the differ
 4. Enter spec details.
 
    * Import Name: Products API
-   * Import Uul: [https://raw.githubusercontent.com/aliceinapiland/apijam/master/Module-1/Resources/products-catalog-spec.yaml](https://raw.githubusercontent.com/aliceinapiland/apijam/master/Module-1/Resources/products-catalog-spec.yaml)
+   * Import Uul: https://raw.githubusercontent.com/krisrowe/apigee-labs/master/Transformation/products-api-spec.yaml
 
 ![image alt text](./media/ImportSpecByURL.png)
 
