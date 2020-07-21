@@ -28,14 +28,16 @@ else
   ./apigee-remote-service-cli provision --legacy --username $USER --password $PASSWORD --organization $ORG --environment $ENV > config.yaml
   cd $ENVOY_HOME
 
+  docker network create mynet
+
   echo "Starting the remote service as a container..."
-  docker run -d -p 5000:5000 -p 5001:5001 -v $PWD/apigee-remote-service-cli/config.yaml:/config.yaml gcr.io/apigee-api-management-istio/apigee-remote-service-envoy:latest
+  docker run -d -p 5000:5000 -p 5001:5001 -v $PWD/apigee-remote-service-cli/config.yaml:/config.yaml --name apigeers --net mynet  gcr.io/apigee-api-management-istio/apigee-remote-service-envoy:latest
 
   echo "Making sure we have envoy container image..."
   docker pull envoyproxy/envoy:v1.14.1
 
   echo "Run envoy container image..."
-  docker  run -v $REMOTE_SERVICE_HOME/samples/native/envoy-httpbin.yaml:/etc/envoy/envoy.yaml --rm -d -p 8080:8080 envoyproxy/envoy:v1.14.1
+  docker  run -v $REMOTE_SERVICE_HOME/samples/native/envoy-httpbin.yaml:/etc/envoy/envoy.yaml --name envoya --net mynet --rm -d -p 8080:8080 envoyproxy/envoy:v1.14.1
 
   export APIKEY=$2
 fi
