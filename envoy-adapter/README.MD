@@ -4,7 +4,7 @@ Demo the Apigee Adapter for Envoy
 
 # Instructions
 
-1. Make sure you've se tup your API Product properly and obtained an API key as outlined on [this page in the Apigee docs](https://docs.apigee.com/api-platform/envoy-adapter/v1.0-beta.4/operation#how-to-obtain-an-api-key).  
+1. Make sure you've set up your API Product properly and obtained an API key as outlined on [this page in the Apigee docs](https://docs.apigee.com/api-platform/envoy-adapter/v1.0-beta.4/operation#how-to-obtain-an-api-key).  
 
 2. Update the environment variable values for APIKEY, APIGEE_EMAIL, and APIGEE_PWD in the following snippet.
 
