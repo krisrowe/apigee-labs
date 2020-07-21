@@ -2,11 +2,14 @@
 
 Demo the Apigee Adapter for Envoy
 
-# Run as a Script
+# Prerequisites
 
-1. Make sure you've set up your API Product properly and obtained an API key as outlined on [this page in the Apigee docs](https://docs.apigee.com/api-platform/envoy-adapter/v1.0-beta.4/operation#how-to-obtain-an-api-key).  
+Make sure you've set up your API Product properly and obtained an API key as outlined on [this page in the Apigee docs](https://docs.apigee.com/api-platform/envoy-adapter/v1.0-beta.4/operation#how-to-obtain-an-api-key).
 
-2. Revise the environment variable values in the following snippet.
+
+# Run as a Script  
+
+1. Revise the environment variable values in the following snippet.
 
 ```console
 export USEREMAIL=ijustloveapis2020@gmail.com
@@ -18,7 +21,7 @@ export APIKEY=asd1f
 chmod +x envoy-demo.sh
 ./envoy-demo.sh $USEREMAIL $USERPWD $ORG $ENV $APIKEY
 ```
-3. Run the commands above (using your own credentials).
+2. Run the commands above (using your own credentials).
 
 # Sample Expected Output
 ```
@@ -56,6 +59,8 @@ x-envoy-upstream-service-time: 213
 ```
 # Run manually
 
+1. Revise the environment variable values in the following snippet.
+
 ```console
 # Set the environment variables
 export USEREMAIL=ijustloveapis2020@gmail.com
@@ -89,3 +94,5 @@ sleep 3
 # Test end-to-end
 curl -i http://localhost:8080/httpbin/headers -H "x-api-key: $APIKEY"
 ```
+
+2. Run the commands above (using your own credentials).
