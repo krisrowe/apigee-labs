@@ -9,12 +9,14 @@ Demo the Apigee Adapter for Envoy
 2. Update the environment variable values for APIKEY, APIGEE_EMAIL, and APIGEE_PWD in the following snippet.
 
 ```console
-export APIKEY=asd1f
-export APIGEE_EMAIL=ijustloveapis2020@gmail.com
-export APIGEE_PWD=iReallyLoveThem
+export APKEY=asd1f
+export USEREMAIL=ijustloveapis2020@gmail.com
+export USERPWD=iReallyLoveThem
+export ORG=apinut-eval
+export ENV=test
 
 chmod +x envoy-demo.sh
-./envoy-demo.sh $APIGEE_EMAIL $APIGEE_PWD $APIKEY
+./envoy-demo.sh $USEREMAIL $USERPWD $ORG $ENV $APIKEY
 ```
 3. Run the commands above (using your own credentials).
 
