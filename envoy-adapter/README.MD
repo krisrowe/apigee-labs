@@ -4,6 +4,8 @@ Demo the Apigee Adapter for Envoy
 
 # Instructions
 
+1. Update the environment variable values for APIKEY, APIGEE_EMAIL, and APIGEE_PWD in the following script.
+
 ```console
 export APIKEY=asd1f
 export APIGEE_EMAIL=ijustloveapis2020@gmail.com
@@ -12,6 +14,9 @@ export APIGEE_PWD=iReallyLoveThem
 chmod +x envoy-demo.sh
 ./envoy-demo.sh $APIGEE_EMAIL $APIGEE_PWD $APIKEY
 ```
+See [this page in the Apigee docs](https://docs.apigee.com/api-platform/envoy-adapter/v1.0-beta.4/operation#how-to-obtain-an-api-key) for instructions on how to setup the API Product and obtain the API key.
+
+2. Run the above.
 
 # Sample Expected Output
 ```
