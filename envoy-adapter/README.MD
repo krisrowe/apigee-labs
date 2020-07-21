@@ -5,12 +5,12 @@ Demo the Apigee Adapter for Envoy
 # Instructions
 
 ```console
-export APKEY=asd1f
-export USEREMAIL=ijustloveapis2020@gmail.com
-export USERPWD=iReallyLoveThem
+export APIKEY=asd1f
+export APIGEE_EMAIL=ijustloveapis2020@gmail.com
+export APIGEE_PWD=iReallyLoveThem
 
 chmod +x envoy-demo.sh
-./envoy-demo.sh $USEREMAIL $USERPWD $APIKEY
+./envoy-demo.sh $APIGEE_EMAIL $APIGEE_PWD $APIKEY
 ```
 
 # Sample Expected Output
