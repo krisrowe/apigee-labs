@@ -9,7 +9,7 @@ Make sure you've set up your API Product properly and obtained an API key as out
 
 # Sample Expected Output
 ```
-TBD
+Greeting: Hello world
 ```
 # Commands to run
 
