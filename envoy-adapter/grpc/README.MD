@@ -47,28 +47,33 @@ docker network create mynet
 docker build -t grpc/node-grpc-app .
 ```
 
-6. Start the Apigee Remote Service
+6. Start the gRPC server
 ```console
-docker run -d -p 50051:50051 -v $CLI_HOME/config.yaml:/config.yaml --name=apigeers --network=mynet grpc/node-grpc-app
+docker run -d -p 50051:50051 --name=grpchost --network=mynet grpc/node-grpc-app
 ```
 
-7. Make sure we have Envoy container image
+7. Start the Apigee Remote Service
+```console
+docker run -d -p 5000:5000 -p 5001:5001 -v $CLI_HOME/config.yaml:/config.yaml --name=apigeers --network=mynet grpc/node-grpc-app
+```
+
+8. Make sure we have Envoy container image
 ```console
 docker pull envoyproxy/envoy:v1.14.1
 ```
 
-8. Run the Envoy container image
+9. Run the Envoy container image
 ```console
-docker run -v $GRPC_HOME/envoy-config.yaml:/etc/envoy/envoy.yaml --name envoya --net mynet --rm -d -p 8080:8080 envoyproxy/envoy:v1.14.1
+docker run -v $GRPC_HOME/envoy-config.yaml:/etc/envoy/envoy.yaml --name envoya --net mynet --rm -d -p 8080:8080 -p 9000:9000 envoyproxy/envoy:v1.14.1
 ```
 
-9. Edit the client configuration (client.js) to use your own API key 
+10. Edit the client configuration (client.js) to use your own API key 
 ```JavaScript
 var metadata = new grpc.Metadata();
 metadata.add('x-api-key', 'asdf'); // replace 'asdf' with your own key
 ```
 
-10. Test end-to-end
+11. Test end-to-end
 ```console
 cd $GRPC_HOME
 npm install
