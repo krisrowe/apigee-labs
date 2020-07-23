@@ -30,10 +30,10 @@ var packageDefinition = protoLoader.loadSync(
     });
 var hello_proto = grpc.loadPackageDefinition(packageDefinition).helloworld;
 var metadata = new grpc.Metadata();
-metadata.add('x-api-key', '7VnmYvPiAPNA20fPAS3z0DLSSTSIkeS');
+metadata.add('x-api-key', 'asdf');
 
 function main() {
-  var client = new hello_proto.Greeter('localhost:50051',
+  var client = new hello_proto.Greeter('localhost:8080',
                                        grpc.credentials.createInsecure());
   var user;
   if (process.argv.length >= 3) {
