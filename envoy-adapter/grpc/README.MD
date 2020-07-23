@@ -16,20 +16,19 @@ TBD
 1. Set environment variables for your credentials
 
 ```console
-# Set the environment variables
+# Set the environment variables for Apigee credentials
 export USEREMAIL=ijustloveapis2020@gmail.com
 export USERPWD=iReallyLoveThem
 export ORG=apinut-eval
 export ENV=test
-export APIKEY=asd1f
 ```
 
-2. Set general environment variables 
+2. Set path-related environment variables 
 
 ```console
 export GRPC_HOME=$PWD
+cd ..
 export CLI_HOME=$PWD/apigee-remote-service-cli
-cd $CLI_HOME
 ```
 
 3. Provision the Apigee Remote Service in the cloud and gen local config 
@@ -50,7 +49,7 @@ docker build -t grpc/node-grpc-app .
 
 6. Start the Apigee Remote Service
 ```console
-docker run -d -p 50051:50051 --name=apigeers --network=mynet grpc/node-grpc-app
+docker run -d -p 50051:50051 -v $CLI_HOME/config.yaml:/config.yaml --name=apigeers --network=mynet grpc/node-grpc-app
 ```
 
 7. Make sure we have Envoy container image
