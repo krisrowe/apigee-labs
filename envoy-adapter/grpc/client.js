@@ -30,7 +30,7 @@ var packageDefinition = protoLoader.loadSync(
     });
 var hello_proto = grpc.loadPackageDefinition(packageDefinition).helloworld;
 var metadata = new grpc.Metadata();
-metadata.add('x-api-key', 'asdf');
+metadata.add('x-api-key', 'uDSlW1mFFPVYh6F3kMHMRgKJT2kClTYk');
 
 function main() {
   var client = new hello_proto.Greeter('localhost:8080',
@@ -45,7 +45,7 @@ function main() {
     if (response)
       console.log('Greeting:', response.message);
     else
-      console.log('Error:', err.message);
+      console.log('The sayHello call failed:', err.message);
   });
 }
 

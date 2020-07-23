@@ -54,7 +54,7 @@ docker run -d -p 50051:50051 --name=grpchost --network=mynet grpc/node-grpc-app
 
 7. Start the Apigee Remote Service
 ```console
-docker run -d -p 5000:5000 -p 5001:5001 -v $CLI_HOME/config.yaml:/config.yaml --name=apigeers --network=mynet grpc/node-grpc-app
+docker run -d -p 5000:5000 -p 5001:5001 -v $CLI_HOME/config.yaml:/config.yaml --name=apigeers --network=mynet gcr.io/apigee-api-management-istio/apigee-remote-service-envoy:v1.0.0-beta.2
 ```
 
 8. Make sure we have Envoy container image
