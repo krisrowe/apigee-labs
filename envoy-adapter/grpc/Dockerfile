@@ -14,8 +14,8 @@ RUN npm install
  
  
 # Bundle app source
-COPY . .
- 
+COPY greeter_server.js ./
+COPY helloworld.proto ./
  
 EXPOSE 50051
  
