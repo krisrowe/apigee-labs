@@ -15,7 +15,7 @@ Google Kubernetes Engine (GKE)
 gcloud container clusters get-credentials [cluster-name] --zone [zone-name]
 ```
 
-# Deploy services on Kubernetes
+# Provision Apigee Remote Service
 
 1. Set Apigee credentials to env variables (*** USE YOUR OWN ***)
 
@@ -40,65 +40,79 @@ cd $LAB_HOME
 $CLI_HOME/apigee-remote-service-cli provision --legacy --username $USER --password $PASSWORD --organization $ORG --environment $ENV > config.yaml
 ```
 
-4. Make sure you have a namespace set up on Kubernetes
+# Create the API Product in Apigee that will control access
+
+1. Click on API Products in the Apigee Management UI menu
+   
+2. Click the button to add a new API Product
+
+3. Enter any intuitive name for the product (e.g. "HTTP Bin")
+
+4. Select access as Private
+
+5. Click to add a proxy and select the `remote-service` proxy
+
+6. Click to add a remote service and enter as follows:
+
+  1. Target name: (any intuitive name, e.g. "httpbin.org")
+  2. API proxy: "remote-service"
+  3. Path: "/httpbin"
+  4. Save the new API Product
+
+# Register a client App in Apigee with access to the new API Product
+
+1. Click on "Apps" in the Apigee Management UI menu and register a new app
+2. Select the newly created API Product for access by the App
+3. Save the new App
+4. Grab the API Key for the newly registered App
+5. Store the API Key to an environment variable at the command line
+```console
+export APIKEY=yourNewApiKeyHere
+```
+
+# Deploy services on Kubernetes
+
+1. Make sure you have a namespace set up on Kubernetes
 ```console
 kubectl create namespace apigee
 ```
 
-5. Create a K8s ConfigMap for the Apigee Remote Service using the config.yaml file that we generated with the CLI provisioning command.
+2. Create a K8s ConfigMap for the Apigee Remote Service using the config.yaml file that we generated with the CLI provisioning command.
 ```console
 kubectl create configmap -n apigee apigee-remote-service-envoy --from-file=./config.yaml
 ```
 
-6. Create the deployment and K8s service for the Apigee Remote Service 
+3. Create the deployment and K8s service for the Apigee Remote Service 
 ```console
 kubectl apply -f saas-apigee-remote-service-envoy.yaml
 ```
 
-7. Transfer our local config file for the Envoy proxy to a K8s ConfigMap
+4. Transfer our local config file for the Envoy proxy to a K8s ConfigMap
 ```console
 kubectl create configmap -n apigee standalone-envoy-config --from-file=./standalone-envoy-config.yaml
 ``` 
 
-8. Create a standalone deployment and K8s service for the Envoy proxy
+5. Create a standalone deployment and K8s service for the Envoy proxy
 ```console
 kubectl apply -f standalone-envoy-manifest.yaml
 ```
 
-9. Create the API Product in Apigee
-
-   1. Click on API Products in the Apigee Management UI menu
-   
-   2. Click the button to add a new product
-
-   3. Enter an intuitive name for the product (e.g. "HTTP Bin")
-
-   4. Select access as Private
-
-   5. Click to add a proxy and select the remote-service proxy
-
-   6. Click to add a remote service and enter as follows:
-
-      1. Target name: "httpbin.org"
-      2. API proxy: "remote-service"
-      3. Path: "/"
-
-   7. Save the new API Product
-
-10. Click on "Apps" in the Apigee Management UI menu and register a new app
-   1. Add the newly created API Product to the app
-   2. Save
-   3. Grab the new API Key
-
 # Test
 
-1. Deploy curl as an another service and connect to the container: `kubectl run -it curl --image=curlimages/curl --restart=Never -- sh`
+1. Get the external IP address provided by the Ingress resource for the Kubernetes services
+```console
+export SVCIP=$(kubectl get svc standalone-envoy -n apigee -o jsonpath="{.status.loadBalancer.ingress[*].ip}")
+```
 
-2. Using your own API Key, run `export APIKEY=asdf1234`
+2. Confirm that your APIKEY and SVCIP environment variables are set
+```console
+echo $APIKEY
+echo $SVCIP
+```
 
 3. Invoke the service via the Envoy proxy
 ```console
-curl -i standalone-envoy.apigee.svc.cluster.local/httpbin/headers -H "x-api-key: $APIKEY"
+curl -i $SVCIP/httpbin/headers -H "x-api-key: $APIKEY"
 ```
 
 # Sample Expected Output
