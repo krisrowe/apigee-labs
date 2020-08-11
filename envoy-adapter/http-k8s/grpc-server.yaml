@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grpc-server
+  namespace: apigee
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grpc-server
+  template:
+    metadata:
+      labels:
+        app: grpc-server
+        version: v1
+    spec:
+      containers:
+      - name: grpc-server
+        image: "gcr.io/apigee-envoy-gke-demo/grpc-server:latest"
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: TESTVAL 
+          value: stuff
+        ports:
+        - containerPort: 50051
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: grpc-server
+  namespace: apigee
+  labels:
+    app: grpc-server
+spec:
+  ports:
+  - port: 50051
+    name: grpc
+    targetPort: 50051
+    protocol: TCP
+  selector:
+    app: grpc-server
