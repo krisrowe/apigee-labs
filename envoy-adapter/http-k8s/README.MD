@@ -4,13 +4,9 @@ Demo the Apigee Adapter for Envoy on Kubernetes
 
 # Prerequisites
 
-1. Make sure you've set up your API Product properly and obtained an API key as outlined on [this page in the Apigee docs](https://docs.apigee.com/api-platform/envoy-adapter/v1.0-beta.4/operation#how-to-obtain-an-api-key).
+Make sure you are pointed locally to a running Kubernetes cluster
 
-2. Also add the path `/` to the additional API Product that you manually create for httpbin.org. Otherwise you will get 403 errors.
-
-3. Make sure you are pointed locally to a running Kubernetes cluster
-
-Google Kubernetes Engine (GKE)
+## Google Kubernetes Engine (GKE)
 ```
 gcloud container clusters get-credentials [cluster-name] --zone [zone-name]
 ```
