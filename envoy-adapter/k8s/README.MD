@@ -163,6 +163,11 @@ kubectl create configmap -n apigee grpc-envoy-config --from-file=./grpc-envoy-co
 kubectl apply -f grpc-envoy-manifest.yaml
 ```
 
+3. Create a Kubernetes Deployment and Service for the gRPC server
+```console
+kubectl apply -f grpc-server.yaml
+```
+
 # Test the gRPC service
 
 1. Get the external IP address of the load balancer for the Kubernetes service
