@@ -72,3 +72,4 @@ spec:
     protocol: TCP
   selector:
     app: standalone-envoy
+  type: NodePort
