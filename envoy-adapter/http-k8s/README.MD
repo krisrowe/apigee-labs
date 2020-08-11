@@ -50,13 +50,16 @@ $CLI_HOME/apigee-remote-service-cli provision --legacy --username $USER --passwo
 
 4. Select access as Private
 
-5. Click to add a proxy and select the `remote-service` proxy
+5. Under 'API resources' add the proxy named `remote-service`
 
-6. Click to add a remote service and enter as follows:
-   1. Target name: (any intuitive name, e.g. "httpbin.org")
-   2. API proxy: "remote-service"
-   3. Path: "/httpbin"
-   4. Save the new API Product
+6. Under 'Apigee Remote Service Targets', click to add and enter the details as follows:
+   1. Target name: `httpbin.org` (matches backend host)
+   2. API proxy: `remote-service`
+   3. Path: `/httpbin`
+
+7. Add another path for access as `/` under 'API resources', so that both `/httpbin` and `/` then appear in the list.
+
+8. Save the new API Product
 
 # Register a client App in Apigee with access to the new API Product
 
