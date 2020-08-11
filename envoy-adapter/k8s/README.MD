@@ -68,7 +68,7 @@ $CLI_HOME/apigee-remote-service-cli provision --legacy --username $USER --passwo
 export APIKEY=yourNewApiKeyHere
 ```
 
-# Deploy services on Kubernetes
+# Deploy the Apigee Remote Service on Kubernetes
 
 1. Make sure you have a namespace set up on Kubernetes
 ```console
@@ -85,19 +85,21 @@ kubectl create configmap -n apigee apigee-remote-service-envoy --from-file=./con
 kubectl apply -f saas-apigee-remote-service-envoy.yaml
 ```
 
-4. Transfer our local config file for the Envoy proxy to a K8s ConfigMap
+# Deploy the http service on Kubernetes
+
+1. Transfer our local config file for the Envoy proxy to a K8s ConfigMap
 ```console
 kubectl create configmap -n apigee standalone-envoy-config --from-file=./standalone-envoy-config.yaml
 ``` 
 
-5. Create a standalone deployment and K8s service for the Envoy proxy
+2. Create a standalone (non-sidecar) Deployment and Kubernetes Service for the Envoy proxy
 ```console
 kubectl apply -f standalone-envoy-manifest.yaml
 ```
 
-# Test
+# Test the HTTP service
 
-1. Get the external IP address provided by the Ingress resource for the Kubernetes services
+1. Get the external IP address of the load balancer for the Kubernetes service
 ```console
 export SVCIP=$(kubectl get svc standalone-envoy -n apigee -o jsonpath="{.status.loadBalancer.ingress[*].ip}")
 ```
@@ -113,37 +115,42 @@ echo $SVCIP
 curl -i $SVCIP/httpbin/headers -H "x-api-key: $APIKEY"
 ```
 
+# Deploy the gRPC service on Kubernetes
+
+1. Transfer our local config file for the Envoy proxy to a K8s ConfigMap
+```console
+kubectl create configmap -n apigee grpc-envoy-config --from-file=./grpc-envoy-config.yaml
+``` 
+
+2. Create a standalone (non-sidecar) Deployment and Kubernetes Service for the Envoy proxy
+```console
+kubectl apply -f grpc-envoy-manifest.yaml
+```
+
+# Test the gRPC service
+
+1. Get the external IP address of the load balancer for the Kubernetes service
+```console
+export SVCIP=$(kubectl get svc grpc-envoy -n apigee -o jsonpath="{.status.loadBalancer.ingress[*].ip}")
+```
+
+2. Confirm the IP address of the Kubernetes Service for gRPC and the API key are available
+```console
+echo $APIKEY
+echo $SVCIP
+```
+
+3. Make sure the node.js dependencies are installed locally
+```console
+npm install
+```
+
+4. Invoke the service via the Envoy proxy
+```console
+node grpc-client.js $SVCIP $APIKEY
+```
+
 # Sample Expected Output
 ```
-HTTP/1.1 200 OK
-date: Tue, 21 Jul 2020 06:14:12 GMT
-content-type: application/json
-content-length: 797
-server: envoy
-access-control-allow-origin: *
-access-control-allow-credentials: true
-x-envoy-upstream-service-time: 213
-
-{
-  "headers": {
-    "Accept": "*/*", 
-    "Content-Length": "0", 
-    "Host": "httpbin.org", 
-    "User-Agent": "curl/7.52.1", 
-    "X-Amzn-Trace-Id": "Root=1-5f1687b5-2a97fdf121c56322af27e57d", 
-    "X-Api-Key": "asd1f", 
-    "X-Apigee-Accesstoken": "", 
-    "X-Apigee-Api": "httpbin.org", 
-    "X-Apigee-Apiproducts": "remote-service,Local Products API", 
-    "X-Apigee-Application": "NNL Products App", 
-    "X-Apigee-Authorized": "true", 
-    "X-Apigee-Clientid": "asd1f", 
-    "X-Apigee-Developeremail": "ijustloveapis2020@gmail.com", 
-    "X-Apigee-Environment": "prod", 
-    "X-Apigee-Organization": "api-guru22", 
-    "X-Apigee-Scope": "", 
-    "X-Envoy-Expected-Rq-Timeout-Ms": "15000", 
-    "X-Envoy-Original-Path": "/httpbin/headers"
-  }
-}
+Greeting: Hello world
 ```
