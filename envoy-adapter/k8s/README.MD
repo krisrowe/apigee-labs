@@ -90,6 +90,8 @@ kubectl apply -f standalone-envoy-manifest.yaml
 
 # Test the HTTP service
 
+Before running the below, give time for the external IP to be acquired. You can check if it's available yet by running `kubectl get svc standalone-envoy -n apigee -o`.
+
 1. Get the external IP address of the load balancer for the Kubernetes service
 ```console
 export SVCIP=$(kubectl get svc standalone-envoy -n apigee -o jsonpath="{.status.loadBalancer.ingress[*].ip}")
