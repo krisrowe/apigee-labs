@@ -42,7 +42,7 @@ export ENV=test
 6. Under 'Apigee Remote Service Targets', click to add and enter the details as follows:
    1. Target name: `httpbin.org` (matches backend host)
    2. API proxy: `remote-service`
-   3. Path: `/httpbin`
+   3. Path: `/`
 
 7. Add another path for access as `/` under 'API resources', so that both `/httpbin` and `/` then appear in the list.
 
