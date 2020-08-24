@@ -22,18 +22,9 @@ export ORG=apinut-eval
 export ENV=test
 ```
 
-2. Set path-related environment variables 
-
+2. Provision the Apigee Remote Service in the cloud and gen local config 
 ```console
-export LAB_HOME=$PWD
-cd ..
-export CLI_HOME=$PWD\apigee-remote-service-cli
-cd $LAB_HOME
-```
-
-3. Provision the Apigee Remote Service in the cloud and gen local config 
-```console
-$CLI_HOME/apigee-remote-service-cli provision --legacy --username $USER --password $PASSWORD --organization $ORG --environment $ENV > config.yaml
+../apigee-remote-service-cli/apigee-remote-service-cli provision --legacy --username $USER --password $PASSWORD --organization $ORG --environment $ENV > config.yaml
 ```
 
 # Create the API Product in Apigee that will control access
