@@ -31,6 +31,7 @@ export ENV=test
 2. Set path-related environment variables 
 
 ```console
+cd ..
 export DEMO_HOME=$PWD
 cd ..
 export CLI_HOME=$PWD/apigee-remote-service-cli

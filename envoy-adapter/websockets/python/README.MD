@@ -77,5 +77,5 @@ docker run -v $DEMO_HOME/envoy-config.yaml:/etc/envoy/envoy.yaml --name envoya -
 ```console
 cd $DEMO_HOME/client
 python3 -m pip install -r requirements.txt
-python3 websocket-client.py
+python3 client.py
 ```
