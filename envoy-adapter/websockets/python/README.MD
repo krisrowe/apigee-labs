@@ -8,13 +8,11 @@ Make sure you've set up your API Product properly and obtained an API key as out
 
 
 # Sample Expected Output
-A new random number printed on a new line every 1 second.
 ```
-WebSocket Client Connected
-Received: '1211740'
-Received: '16016349'
-Received: '11128668'
-...
+> What’s your name? 
+Enter a name and you will receive a pingback from the websocket server deployed previously:
+
+< Hello [name]!
 ```
 # Commands to run
 
@@ -31,6 +29,7 @@ export ENV=test
 2. Set path-related environment variables 
 
 ```console
+cd ..
 export DEMO_HOME=$PWD
 cd ..
 export CLI_HOME=$PWD/apigee-remote-service-cli
@@ -72,11 +71,11 @@ docker pull envoyproxy/envoy:v1.14.1
 docker run -v $DEMO_HOME/envoy-config.yaml:/etc/envoy/envoy.yaml --name envoya --net mynet -d -p 8080:8080 -p 9000:9000 envoyproxy/envoy:v1.14.1
 ```
 
-10. Edit the client configuration (client/index.js) to use your own API key 
+10. Edit the client configuration (client/client.py) to use your own API key 
 
 11. Test end-to-end
 ```console
 cd $DEMO_HOME/client
-npm install
-node index.js 
+python3 -m pip install -r requirements.txt
+python3 websocket-client.py
 ```

@@ -95,26 +95,26 @@ static_resources:
                     - allow_missing: {}
 
           # evaluate Apigee rules
-          #- name: envoy.ext_authz
-          #  config:
-          #    grpc_service:
-          #      envoy_grpc:
-          #        cluster_name: apigee-remote-service-envoy
-          #      timeout: 1s                
-          #    metadata_context_namespaces:
-          #    - envoy.filters.http.jwt_authn
+          - name: envoy.ext_authz
+            config:
+              grpc_service:
+                envoy_grpc:
+                  cluster_name: apigee-remote-service-envoy
+                timeout: 1s                
+              metadata_context_namespaces:
+              - envoy.filters.http.jwt_authn
 
           # evaluate RBAC (necessary for Apigee config: reject_unauthorized == false)
-          #- name: envoy.filters.http.rbac
-          #  config:
-          #    rules:
-          #      action: ALLOW
-          #      policies:
-          #        apigee-connector:
-          #          principals:
-          #          - any: true
-          #          permissions:
-          #          - header: { "name": "X-Apigee-Authorized" }
+          - name: envoy.filters.http.rbac
+            config:
+              rules:
+                action: ALLOW
+                policies:
+                  apigee-connector:
+                    principals:
+                    - any: true
+                    permissions:
+                    - header: { "name": "X-Apigee-Authorized" }
 
           - name: envoy.filters.http.router
               
