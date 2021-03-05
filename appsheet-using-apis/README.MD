@@ -46,7 +46,53 @@ You have an AppSheet app that needs to consume data from an API.
 </AssignMessage>
 ```
 
-3. Test makes resource of API
+3. Add each AssignMessage policy to a path-based flow
+
+```
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <PreFlow name="PreFlow">
+        <Request/>
+        <Response/>
+    </PreFlow>
+    <Flows>
+        <Flow name="GetModels">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-SetModelsResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/models") and (request.verb = "GET")</Condition>
+        </Flow>
+        <Flow name="GetMakes">
+            <Description/>
+            <Request/>
+            <Response>
+                <Step>
+                    <Name>AM-SetMakesResponse</Name>
+                </Step>
+            </Response>
+            <Condition>(proxy.pathsuffix MatchesPath "/makes") and (request.verb = "GET")</Condition>
+        </Flow>
+    </Flows>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <HTTPProxyConnection>
+        <BasePath>/cars-api</BasePath>
+        <VirtualHost>default</VirtualHost>
+        <VirtualHost>secure</VirtualHost>
+    </HTTPProxyConnection>
+    <RouteRule name="noroute"/>
+</ProxyEndpoint>
+```
+
+
+4. Test makes resource of API
 
 ```
 curl https://my-dummy-org-prod.apigee.net/cars-api/makes
@@ -62,7 +108,7 @@ Expected Response
       }
 ```
 
-4. Test models resource of API
+5. Test models resource of API
 
 ```
 curl https://my-dummy-org-prod.apigee.net/cars-api/models
