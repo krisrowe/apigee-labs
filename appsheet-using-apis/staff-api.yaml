@@ -23,6 +23,21 @@ paths:
             $ref: '#/definitions/employeesResponse'
       tags:
         - ProductCatalogService
+  /employees/{employeeId}:
+    get:
+      operationId: GetEmployeeDetails
+      parameters: 
+        - in: path
+          name: employeeId
+          type: string
+          required: true
+      responses:
+        '200':
+          description: A successful response.
+          schema:
+            $ref: '#/definitions/employeeObject'
+      tags:
+        - ProductCatalogService
 definitions:
   employeesResponse:
     type: object
