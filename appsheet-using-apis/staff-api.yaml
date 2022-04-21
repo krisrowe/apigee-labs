@@ -53,3 +53,5 @@ definitions:
         type: string
       name:
         type: string
+      photo:
+        type: string
