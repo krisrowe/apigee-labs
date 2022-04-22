@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="Assign-Message-1">
+    <DisplayName>Assign Message 1</DisplayName>
+    <FaultRules/>
+    <Properties/>
+    <Set>
+        <Payload type="application/json">
+{
+  "employees": [
+      {
+          "id": "jdoe",
+          "name": "Jane Doe",
+          "photo": "https://raw.githubusercontent.com/krisrowe/apigee-labs/master/appsheet-using-apis/jane-doe.jpg"
+      },
+      {
+          "id": "krowe",
+          "name": "Kris Rowe",
+          "photo": "https://raw.githubusercontent.com/krisrowe/apigee-labs/master/appsheet-using-apis/john-doe.jpg"
+      },
+      {
+          "id": "jsmith",
+          "name": "John Smith",
+          "photo": "https://raw.githubusercontent.com/krisrowe/apigee-labs/master/appsheet-using-apis/john-doe-2.jpg"
+      },
+      {
+          "id": "sjones",
+          "name": "Sarah Jones",
+          "photo": "https://raw.githubusercontent.com/krisrowe/apigee-labs/master/appsheet-using-apis/jane-doe-2.jpg"
+      },
+      {
+          "id": "jmorales",
+          "name": "Julio Morales",
+          "photo": "https://raw.githubusercontent.com/krisrowe/apigee-labs/master/appsheet-using-apis/john-doe-3.jpg"
+      }
+    ]
+
+}
+</Payload>
+    </Set>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <AssignTo createNew="false" transport="http" type="response"/>
+</AssignMessage>
